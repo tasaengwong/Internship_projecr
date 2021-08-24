@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1 id="intro">Hello World!!</h1>
+<p>The DOM is very useful</p>
+<p>This example demonstrates the <B>length</B>property</p>
+
+<script type="text/javascript">
+// txt=document.getElementById("intro").innerHTML;
+txt=document.getElementById("intro").firstChild.nodeValue;
+
+document.write("<h1> text from the intro paragraph: " + txt + "</h1>");
+document.getElementById("intro").innerHTML="DOM Html";
+function ChangColor()
+{
+    document.body.bgColor='red';
+    document.getElementById("intro").style.color="blue";
+}
+</script>
+
+<input type=button onclick="ChangColor()"; value="chang bg color"/>
+</body>
+</html> 
