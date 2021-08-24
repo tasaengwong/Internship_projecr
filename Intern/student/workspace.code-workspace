@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\react"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Intern"
+	}
+}

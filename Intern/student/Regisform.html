@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="th-TH" ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body ng-controller="Ctrl">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-warning" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="ICT_UP_Logo.png"/></a>
+      <button  class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars ml-1"></i>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../Homepage/home.html">หน้าแรก</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../student/Regisform.html">ยื่นคำร้องฝึกงาน</a></li>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calender">Calender</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                 </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section></section>
+  <div class="container ">
+    <h4>แบบขอข้อมูลเบื้องต้นการฝึกประสบการณ์วิชาชีพ นักศึกษา<br>คณะเทคโนโลยีสารสนเทศและการสื่อสาร มหาวิทยาลัยพะเยา</h4>
+    <hr><br>
+    <p>คำชี้แจง : แบบฟอร์มนี้จัดทำขึ้นเพื่อขอข้อมูลเบื้องต้นการฝึกประสบการณ์วิชาชีพ นักศึกษา
+    </p>
+    <!-- ข้อมูลนักศึกษา -->
+    <label> 1.ข้อมูลนักศึกษา</label><br><br>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="student_id">รหัสนิสิต:</label>&nbsp;
+          <input type="text" ng-model="Reg.ID_std" class="form-control col-8" placeholder="รหัสนิสิต" maxlength="8"
+          required>
+      </div><br>
+      <div class="form-group">
+        <label for="major">คำนำหน้า:</label>&nbsp;
+        <select name="majorselect" class="custom-select" ng-model="Reg.titlename">
+          <option value="นาย">นาย</option>
+            <option value="นางสาว">นางสาว</option>
+        </select>
+      </div>&nbsp;&nbsp;&nbsp;
+       <div class="form-group">
+        <label for="name">ชื่อ:</label>&nbsp;
+          <input type="text" ng-model="Reg.name" class="form-control col-10" placeholder="ชื่อ">
+      </div>&nbsp;<br><br>
+      <div class="form-group">
+        <label for="lastname">นามสกุล:</label>&nbsp;
+          <input type="text" ng-model="Reg.lastname" class="form-control col-9" placeholder="นามสกุล">
+      </div>&nbsp;&nbsp;
+    </form><br>
+
+    <form class="form-inline col-lg-12">
+      <label for="major">สาขา:</label>&nbsp;
+      <select name="majorselect" class="custom-select col-sm-3" ng-model="Reg.field_study" ng-optin=" x for x in major_name">
+        <option value="เทคโนโลยีสารสนเทศ ">เทคโนโลยีสารสนเทศ</option>
+        <option value="วิทยาการคอมพิวเตอร์">วิทยาการคอมพิวเตอร์</option>
+        <option value="คอมพิวเตอร์กราฟฟิกและมัลติมีเดีย">คอมพิวเตอร์กราฟฟิกและมัลติมีเดีย</option>
+        <option value="คอมพิวเตอร์ธุรกิจ">คอมพิวเตอร์ธุรกิจ</option>
+        <option value="ภูมิศาสตร์สารสนเทศ">ภูมิศาสตร์สารสนเทศ</option>
+        <option value="ซอฟร์แวร์คอมพิวเตอร์">ซอฟร์แวร์คอมพิวเตอร์</option>
+        <option value="วิศวกรรมคอมพิวเตอร์">วิศวกรรมคอมพิวเตอร์</option>
+      </select>&nbsp;&nbsp;
+      <div class="form-group">
+        <label for="year">ชั้นปี:</label>&nbsp;
+        <input type="text" ng-model="Reg.std_year" class="form-control col-3" placeholder="ชั้นปี">
+      </div>&nbsp;&nbsp;
+    </form>&nbsp;&nbsp;
+    <form class="form-inline ">
+      <div class=" form-group">
+        <label for="Address">ที่อยู๋: </label>&nbsp;
+          <textarea ng-model="Reg.address" class="form-control col-l-10 " rows="3" ></textarea>&nbsp;
+            <label for="Address">ตำบล: </label>&nbsp;
+            <input ng-model="Reg.subdistric" class="form-control col-l-10 " ></input>&nbsp;
+              <label for="Address">อำเภอ: </label>&nbsp;
+                 <input ng-model="Reg.district" class="form-control col-l-10 " ></input>&nbsp;
+                    <label for="Address">จังหวัด: </label>&nbsp;
+                  <input ng-model="Reg.province" class="form-control col-l-10 " ></input>&nbsp;
+
+      </div>&nbsp;&nbsp;&nbsp;</form><br>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="phone">โทรศัพท์มือถือ :</label>&nbsp;&nbsp;
+           <input type="text" ng-model="Reg.phone" class="form-control " placeholder="เบอร์ติดต่อ" maxlength="10" required>
+              </div>&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+        <label for="email">E-mail :</label>&nbsp;&nbsp;
+          <input type="text" ng-model="Reg.email" class="form-control " placeholder="E-mail" required>
+            </div><br>
+    </form><br><br>
+
+    <!-- ข้อมูลสถานประกอบการ -->
+    <label>2.ข้อมูลสถานที่ฝึกงาน </label>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="name">เรียน : </label> &nbsp;
+        <input type="text" class="form-control " placeholder="ผู้ติดต่อเพื่อส่งเอกสาร">
+      </div>&nbsp;&nbsp;<br><br>
+      <div class="form-group">
+        <label for="#">ตำแหน่ง: </label> &nbsp;
+        <input type="text" class="form-control " >&nbsp;<span>(เช่น ผู้จัดการฝ่ายบุคล,หัวหน้างาน)</span>
+      </div>&nbsp;&nbsp;
+    </form>&nbsp;&nbsp;
+
+    <form class="form-inline" >
+      <div class="form-group">
+        <label for="#">ชื่อสถานประกอบการ : </label> &nbsp;
+        <input type="text" class="form-control " >&nbsp;
+      </div>&nbsp;&nbsp;
+      <div class="form-group">
+        <label for="Address">ที่อยู่สถานประกอบการ :</label> &nbsp;
+        <textarea type="text" class=" md-textarea form-control col-auto" rows="3"></textarea>
+      </div>&nbsp;&nbsp;
+    </form>&nbsp;&nbsp;
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="phone">โทรศัพท์มือถือ :</label>&nbsp;&nbsp;
+        <input type="text"  class="form-control " placeholder="เบอร์ติดต่อ" maxlength="10" required>
+      </div>&nbsp;&nbsp;&nbsp;
+      <div class="form-group">
+        <label for="email">E-mail :</label>&nbsp;&nbsp;
+        <input type="text"  class="form-control " placeholder="E-mail" required>
+      </div><br>&nbsp;
+      <div class="form-group">
+        <label for="FAx">FAX :</label>&nbsp;&nbsp;
+        <input type="text"  class="form-control " placeholder="FAX" >
+      </div>
+      <div class="bnt col-11">
+       <button class="btn btn-success" type="submit" ng-click="save()"><i
+        class="fas fa-plus-circle">&nbsp;</i>Save</button></div>
+    </form>
+
+  </div>
+  </section><br>
+
+  <!-- Footer -->
+  <footer class="footer card-footer">
+    <div class="col-lg-6 text-lg-right">@ version beta</div>
+  </footer>
+
+
+  <!--container script-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="scrip.js"></script>
+
+</body>
+
+</html>
